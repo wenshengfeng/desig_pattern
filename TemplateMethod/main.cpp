@@ -6,7 +6,7 @@ class Libray{
             go_run();
         }
     }
-    virtual ~Libray();
+    virtual ~Libray(){};
 
     protected:
     void go_run(){} // 稳定
@@ -17,7 +17,7 @@ class Libray{
 class Appliation : public Libray{
     public:
     bool init(){
-
+        return false;
     }
     ~Appliation(){}
 };

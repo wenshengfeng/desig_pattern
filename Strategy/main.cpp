@@ -34,6 +34,11 @@ class Context{
         return strategy->doOperation(num1,num2);
     }
 
+    bool setStrategy(Strategy *strategy){
+        if(this->strategy != nullptr) delete  this->strategy;
+        this->strategy = strategy;
+        return true;
+    }
     ~Context(){
         delete strategy;
     }
@@ -43,6 +48,9 @@ int main()
 {
     Context* ctx = new Context(new OperationSub());
     double rlt = ctx->executeStrategy(6.1, 3.0);
+    std::cout<<"rlt is :" << rlt << std::endl;
+    ctx->setStrategy(new OperationAdd());
+    rlt = ctx->executeStrategy(9.9, 1.1);
     std::cout<<"rlt is :" << rlt << std::endl;
 
     return 0;
